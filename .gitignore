@@ -1,0 +1,20 @@
+# MATLAB autosave and temporary files
+*.asv
+*.m~
+
+# MATLAB and Simulink generated files
+slprj/
+*.slxc
+*_ert_rtw/
+*_grt_rtw/
+
+# MATLAB code generation
+codegen/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# macOS
+.DS_Store
