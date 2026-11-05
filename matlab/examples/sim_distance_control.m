@@ -10,13 +10,15 @@ clear all; close all;
 
 % set constants
 
-x_star = 50; % target distance (mm)
+x_star = 50; % target distance (cm)
 k_max = 50; % maximum # of iterations
-k_p = 8; % proportional feedback gain
-t_s_star = 0.2; % assumed sampling period
+k_p = 10; % proportional feedback gain
+t_s_star = 0.1; % assumed sampling period
 delta_t_s = 0.0; % bound of t_s variation
-n_s_star = 5; % sensor noise
-delta_n_s = 1; % bound of n_s variation
+n_s_star = 0; % sensor noise
+delta_n_s = 0; % bound of n_s variation
+n_a = 8.8;
+n_a=8;
 x(1) = 100; % initial distance
 
 % control loop 
@@ -26,7 +28,7 @@ for k = 1: k_max
     t_s(k) = t_s_star + (rand-0.5)*2*delta_t_s;
     y(k) = x(k) + n_s(k);
     u(k) = k_p * ( y(k) - x_star );
-    x(k+1) = x(k) - u(k) * t_s(k);
+    x(k+1) = x(k) - (u(k)+n_a) * t_s(k);
 end
 
 disp(sprintf('Steady State Error: %g',mean(x(end-10:end)-x_star)))
