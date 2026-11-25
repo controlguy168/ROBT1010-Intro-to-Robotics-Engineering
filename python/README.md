@@ -1,6 +1,8 @@
 # Python client
 
-Python 3.9+; no MATLAB or runtime dependencies. In a terminal in this folder, install with `python -m pip install .`. Connect the computer and car to the same Wi-Fi, then replace the IP below with the car's current address.
+Python 3.9+; no MATLAB or runtime dependencies. In a terminal in this
+folder, install with `python -m pip install .`. Connect the computer
+to the car Wi-Fi. 
 
 ```python
 from elegoo_robot_car import ElegooRobotCar
@@ -40,4 +42,4 @@ Methods return decoded JSON dictionaries from the firmware; `capture()` returns 
 | `command(number, d1=None, d2=None, d3=None)` | command ID and optional parameters | Send a raw Arduino command |
 | `close()` | — | Close TCP connection |
 
-For detailed sensor fields and Arduino command descriptions see `../MATLAB/API_REFERENCE.md`. Network errors and timeouts raise Python exceptions. Camera streaming and motor commands share the ESP32; performance depends on network and device load.
+
